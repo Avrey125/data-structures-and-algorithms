@@ -47,11 +47,8 @@ const citiesAtoJ = (arr) => {
   // Solution code here...
   arr = arr.join(", ")
   let result = arr.match(/\S[A-J]/g)
-  if(result){
-    return result;
-  }else{
-      return [];
-  }
+  newArr = [];
+  arr.forEach(string =>)
   };
 
 /* ------------------------------------------------------------------------------------------------
