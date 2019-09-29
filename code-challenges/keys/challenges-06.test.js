@@ -15,8 +15,8 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 const getCourseKeys = (obj) => {
   // Solution code here...
   
-  let stuff = Object.keys(obj);
-  return stuff;
+  let newArr = Object.keys(obj);
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,12 +73,12 @@ let characters = [
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
   arr.forEach(character => {
     houses.push(character.house)
-  });
+  })
   return houses;
 };
+
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -92,13 +92,14 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
-  arr.forEach(character => {
-    
-
-
-    });
-  }
+  let answer = false;
+  arr.forEach(family => {
+    if (family.name === character){
+      answer = family.children.length > 0;
+    }
+  })
+  return answer;
+}
 
 
 
@@ -121,11 +122,30 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
-  let numChar = Object.keys(characters).length;
 
-  return numChar;
+  let answer = 0;
+
+  arr.forEach(element => {
+    Object.values(element).forEach(value => {
+      if (value){
+        if (Array.isArray(value) && value[0]){
+          value.forEach(x => {
+            answer++;
+          })
+        }
+        else {
+          if(!Array.isArray(value)){
+            console.log(value)
+            answer++;
+          }
+        }
+      }
+    })
+    answer--;
+  })
+  return answer;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -191,7 +211,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
   });
