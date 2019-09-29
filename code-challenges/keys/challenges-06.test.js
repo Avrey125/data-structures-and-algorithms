@@ -13,7 +13,25 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 };
 
 const getCourseKeys = (obj) => {
+  // Solution code here...
+  
+  let newArr = Object.keys(obj);
+  return newArr;
+};
 
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 2
+Use the characters data below for the remainder of the challenges.
+
+Write a function named getHouses that returns a new array containing the names of all of the houses in the data set.
+------------------------------------------------------------------------------------------------ */
+
+let characters = [
+  {
+    name: 'Eddard',
+    spouse: 'Catelyn',
+    children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
+    house: 'Stark'
   },
   {
     name: 'Jon A.',
